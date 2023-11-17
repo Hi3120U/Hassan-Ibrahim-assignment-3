@@ -1,0 +1,88 @@
+# Hassan ibrahim #100869580
+
+class BasicCalculator:
+    
+    def addition(self, x, y):
+        return x + y
+
+    def subtraction(self, x, y):
+        return x - y
+
+    def multiplication(self, x, y):
+        return x * y
+
+    def division(self, x, y):
+        return x / y
+
+
+class AdvancedCalculator(BasicCalculator):
+    def addition(self, x, y):
+        try:
+            result = super().addition(x, y)
+            return result
+        except TypeError:
+            return "Error"
+
+    def subtraction(self, x, y):
+        try:
+            result = super().subtraction(x, y)
+            return result
+        except TypeError:
+            return "Error"
+
+    def multiplication(self, x, y):
+        try:
+            result = super().multiplication(x, y)
+            return result
+        except TypeError:
+            return "Error"
+
+    def division(self, x, y):
+        try:
+            if y == 0:
+                raise ZeroDivisionError
+            result = super().division(x, y)
+            return result
+        except (TypeError, ZeroDivisionError):
+            return "Error"
+
+
+def main():
+    calc = AdvancedCalculator()
+    operations = []
+
+    while True:
+        try:
+            op = input("Operation? (+, -, *, /): ")
+            if op not in ['+', '-', '*', '/']:
+                raise ValueError
+            x, y = map(float, input("Enter two numbers: ").split())
+            if op == '+':
+                result = calc.addition(x, y)
+                op_str = f"{x} + {y} = {result}"
+            elif op == '-':
+                result = calc.subtraction(x, y)
+                op_str = f"{x} - {y} = {result}"
+            elif op == '*':
+                result = calc.multiplication(x, y)
+                op_str = f"{x} * {y} = {result}"
+            else:
+                result = calc.division(x, y)
+                op_str = f"{x} / {y} = {result}"
+            operations.append(op_str)
+            print(op_str)
+        except ValueError:
+            print("Error")
+        except KeyboardInterrupt:
+            print("\nExiting program...")
+            break
+
+    print("Operations:")
+    for op in operations:
+        print(op)
+
+
+if __name__ == '__main__':
+    main()
+    
+##############################################################################################    

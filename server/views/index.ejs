@@ -1,0 +1,90 @@
+<%- include partials/header.ejs %>
+<%- include partials/main_nav.ejs %>
+
+<div id="wrapper">
+  <div id="banner">
+    <h1>Welcome to the <%= title %> Page</h1>
+  </div>
+  <div id="left-column">
+  </div>
+  <section id="<%= page %>">
+    <div id="right-column">
+      <% if (title === "Home") { %>
+        <h2>Welcome to my online portfolio! It's a virtual canvas on which I paint my experiences, interests, and artistic endeavors. Discover my wide range of creations, each demonstrating my abilities, zeal, and love for my trade.
+        My portfolio demonstrates a wide range of abilities and experiences, from creating user-friendly interfaces to developing complex solutions in code.
+        So please feel free to peruse my creations, and when you're ready, click the 'Contact Me' option. I'm eager to connect and learn about new possibilities and am 
+        only a message away. I appreciate you coming, and I look forward to speaking with you.</h2>
+      <% } %>
+
+      <% if (title === "About Me") { %>
+        <h1>About Me</h1>
+        <div class="row">
+          <div class="col-md-4">
+            <h3>Me!</h3>
+            <figure>
+              <img src="/Assets/images/About mepic.jpg" alt="My Photo">
+            </figure>
+          </div>
+          <div class="col-md-8">
+            <h2>Introduction</h2>
+            <p>
+              I'm Hassan, a 19-year-old second-year student at the University of Ontario Institute of Technology (UOIT), 
+              where I'm majoring in Information Technology Networking and Security. My academic journey is driven by a profound interest in the world of technology, 
+              particularly in securing and optimizing digital infrastructures.
+            </p>
+          </div>
+        </div>
+      <% } %>
+
+      <% if (title === "Projects") { %>
+        <h1>My Projects</h1>
+        <div id="left-column">
+          <h3>My Python Projects</h3>
+        </div>
+        <div id="right-column">
+          <h2>Python Project Calculator</h2>
+          <p>Included below is a Python program that acts as a calculator, allowing you to perform a variety of operations such as addition, subtraction, multiplication, and division.</p>
+          <embed src="Hassan_Ibrahim_Calculator_Python_Project.txt">
+        </div>
+        <div class="clear"></div>
+      <% } %>
+      
+      <% if (title === 'Contact') { %>
+        <h1>Contact Me</h1>
+        <div id="left-column">
+        </div>
+        <div id="right-column">
+          <h3>Send any Concerns Below!</h3>
+          <form action="mailto:email@email.com?subject=Signup Form" method="post" enctype="text/plain" name="form">
+            <p>
+              <label for="name">Name</label>
+              <input type="text" name="name" size="32">
+            </p>
+            <p>
+              <label for="email">Email</label>
+              <input name="email" type="email" size="40">
+            </p>
+            <p>
+              <label for="comments">Comments</label>
+              <br>
+              <textarea name="comments" cols="60" rows="6"></textarea>
+            </p>
+            <p><input type="submit" value="Click here to submit the form" /></p>
+          </form>
+        </div>
+        <div class="clear"></div>
+      <% } %>
+    </div>
+    <div class="clear"></div>
+  </section>
+</div>
+
+<main>
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4"> Welcome to the <%= title %></h1>
+    </div>
+  </div>
+</main>
+<%- include partials/bottom_nav.ejs %>
+<%- include partials/footer.ejs %>
